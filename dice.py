@@ -27,6 +27,22 @@ class DiceGame:
     def set_current_player(self, player):
         self.current_player = player
     
+    # method to set the player for next move
+    def set_next_player(self, player):
+        next_user = player+1
+        counter = 1
+        while True:
+            # skip next player if he has already completed the game
+            # counter to prevent infinte loop in case all players have completed the game
+            next_user = next_user if next_user <= self.players else 1
+            if self.turn_skipped[next_user] == "Completed" and counter <= self.players:
+                next_user += 1
+                counter += 1
+                continue
+            
+            self.set_current_player(next_user)
+            break
+    
     # method to check if game has ended
     def has_game_ended(self):
         # find all players in turn_skipped list with "Completed" value
