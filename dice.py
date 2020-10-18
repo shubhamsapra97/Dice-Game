@@ -63,6 +63,17 @@ class DiceGame:
                 self.two_consecutive_ones = True
         return False
     
+    # method to update stats of player after dice roll
+    def update_player_stats(self, score):
+        self.player_scores[self.current_player] += score
+        
+        # if player has achieved required score
+        # add the player to rank list
+        # set turn_skipped for the player to be "Completed", to ignore player in next rounds.
+        if self.player_scores[self.current_player] >= self.score_limit:
+            self.rank_list.append(self.current_player)
+            self.turn_skipped[self.current_player] = "Completed"
+    
     # method to check if game has ended
     def has_game_ended(self):
         # find all players in turn_skipped list with "Completed" value
