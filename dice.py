@@ -27,6 +27,21 @@ class DiceGame:
     def set_current_player(self, player):
         self.current_player = player
     
+    # check if player's turn is to be skipped
+    # in case of consecutive 1's or if player has completed the game
+    def validate_player(self):
+        print(self.turn_skipped)
+        if self.turn_skipped[self.current_player]:
+            
+            # if player has not completed the game
+            # reset the player skip for next rounds
+            if self.turn_skipped[self.current_player] != "Completed":
+                self.turn_skipped[self.current_player] = False
+                print(f"Skipping Player {self.current_player} turn because of 2 consecutive 1's\n")
+            
+            # set next player for this move
+            self.set_next_player(self.current_player)
+    
     # method to print game innstructions
     def display_instructions(self, startingPlayer):
         print(f"""
