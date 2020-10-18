@@ -22,6 +22,11 @@ class DiceGame:
         self.current_player = 1
         self.two_consecutive_ones = False
     
+    # Setter Method
+    # sets current player
+    def set_current_player(self, player):
+        self.current_player = player
+    
     # Game Init method
     def start_init(self):
         # set random player for first move.
