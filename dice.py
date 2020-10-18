@@ -30,7 +30,6 @@ class DiceGame:
     # check if player's turn is to be skipped
     # in case of consecutive 1's or if player has completed the game
     def validate_player(self):
-        print(self.turn_skipped)
         if self.turn_skipped[self.current_player]:
             
             # if player has not completed the game
