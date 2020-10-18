@@ -43,6 +43,26 @@ class DiceGame:
             self.set_current_player(next_user)
             break
     
+    # method to return player for next move
+    # returns True if current player can continue
+    # returns False if next player gets the move
+    def decide_next_player(self, score):
+        # move to next player if it's player's first move or if counter is reset
+        # (in case of consecutive 1's).
+        if self.prev_roll_score[self.current_player]:
+            
+            # return True if consecutive 6's
+            if score == 6 and self.prev_roll_score[self.current_player] ==  6:
+                print("Jackpot!!")
+                return True
+
+            # in case of consecutive 1's
+            # skip player's move in next round
+            if score == 1 and self.prev_roll_score[self.current_player] == 1:
+                self.turn_skipped[self.current_player] = True
+                self.two_consecutive_ones = True
+        return False
+    
     # method to check if game has ended
     def has_game_ended(self):
         # find all players in turn_skipped list with "Completed" value
