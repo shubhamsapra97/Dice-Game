@@ -175,7 +175,7 @@ class DiceGame:
     # Game Init method
     def start_init(self):
         # set random player for first move.
-        self.set_current_player(random.randint(0, self.players))
+        self.set_current_player(random.randint(1, self.players))
         self.display_instructions(self.current_player)
         self.start_game()
 
