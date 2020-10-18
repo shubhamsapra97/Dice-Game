@@ -22,6 +22,15 @@ class DiceGame:
         self.current_player = 1
         self.two_consecutive_ones = False
     
+    # method to print game innstructions
+    def display_instructions(self, startingPlayer):
+        print(f"""
+           - Every Player will get chance to roll a dice
+           - Game will start from Player {startingPlayer} and continue in circle
+           - For consecutive 6's, player will get to continue his turn
+           - For each 2 consecutive 1's, player's turn will be skipped.
+        """)
+    
     # Setter Method
     # sets current player
     def set_current_player(self, player):
@@ -104,16 +113,7 @@ class DiceGame:
             
             # set next player for this move
             self.set_next_player(self.current_player)
-    
-    # method to print game innstructions
-    def display_instructions(self, startingPlayer):
-        print(f"""
-           - Every Player will get chance to roll a dice
-           - Game will start from Player {startingPlayer} and continue in circle
-           - For consecutive 6's, player will get to continue his turn
-           - For each 2 consecutive 1's, player's turn will be skipped.
-        """)
-    
+
     # method that contains the main logic of the Game
     def start_game(self):
         
