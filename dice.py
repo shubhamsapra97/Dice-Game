@@ -36,6 +36,64 @@ class DiceGame:
            - For each 2 consecutive 1's, player's turn will be skipped.
         """)
     
+    # method that contains the main logic of the Game
+    def start_game(self):
+        
+        # run loop until all players have finished Game
+        while not self.has_game_ended():
+            
+            # before rolling the dice
+            # validate current player, check if he needs to be skipped
+            self.validate_player()
+
+            print(f"Player {self.current_player} to roll the dice")
+            
+            # user confirmation to roll dice
+            while True:
+                user_input = input("Press 'r' to roll ")
+                if user_input != "r":
+                    continue
+                break
+            
+            # get random score for current dice roll
+            roll_score = random.randint(1, DICE_MAX_SCORE)
+            print(f"Player {self.current_player} got {roll_score}\n")
+            
+            # update the stats of the player
+            self.update_player_stats(roll_score)
+            
+            # display the stats in terminal
+            self.display_stats()
+            
+            # if player has completed the game
+            # after updating player stats
+            if self.turn_skipped[self.current_player]:
+                self.prev_roll_score[self.current_player] = roll_score
+                self.set_next_player(self.current_player)
+            
+            # decide whether to get next player for the next move
+            elif not self.decide_next_player(roll_score):
+                # check if player got 2 consecutive 1's
+                # if yes, reset the prev_roll_score of player for this move.
+                if not self.two_consecutive_ones:
+                    self.prev_roll_score[self.current_player] = roll_score
+                else:
+                    self.prev_roll_score[self.current_player] = 0
+                self.set_next_player(self.current_player)
+            
+            # if player scores consectutive 6's
+            # just update the prev score of the player
+            # and let him continue with next move
+            else:
+                self.prev_roll_score[self.current_player] = roll_score
+            
+            # resetting the value for this flag
+            self.two_consecutive_ones = False
+        
+        print("Game Ended!")
+        print("Final Ranks: \n")
+        self.display_stats()
+    
     # Game Init method
     def start_init(self):
         # set random player for first move.
