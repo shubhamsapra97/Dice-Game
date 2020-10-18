@@ -74,6 +74,17 @@ class DiceGame:
             self.rank_list.append(self.current_player)
             self.turn_skipped[self.current_player] = "Completed"
     
+    # method to print stat of current player
+    def display_stats(self):
+        print(" ============================== ")
+        print("Player:     Score:     Rank:\n")
+        for player_index in range(self.players+1):
+            if player_index == 0:
+                continue
+            player_status = "X" if player_index not in self.rank_list else self.rank_list.index(player_index) + 1
+            print(f"|  Player {player_index}     {self.player_scores[player_index]}        {player_status}   |\n")
+        print(" ============================== \n")
+    
     # method to check if game has ended
     def has_game_ended(self):
         # find all players in turn_skipped list with "Completed" value
