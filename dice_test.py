@@ -1,7 +1,7 @@
 import pytest
 from dice import DiceGame
 
-class TestNamesCase:
+class TestDiceGame:
     def test_game_starts_correctly(self, mocker):
         #Given
         DiceGame.players = 2
