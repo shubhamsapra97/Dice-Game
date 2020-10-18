@@ -27,6 +27,12 @@ class DiceGame:
     def set_current_player(self, player):
         self.current_player = player
     
+    # method to check if game has ended
+    def has_game_ended(self):
+        # find all players in turn_skipped list with "Completed" value
+        ranked_players = list(filter(lambda x: x == "Completed", self.turn_skipped))
+        return len(ranked_players) == self.players
+    
     # check if player's turn is to be skipped
     # in case of consecutive 1's or if player has completed the game
     def validate_player(self):
