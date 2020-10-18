@@ -6,10 +6,10 @@ class DiceGame:
     # Constructor
     # players: int: to store number of players
     # score_limit: int: required score for player to win the game
-    # prev_roll_score: int list: player score in previous dice roll
-    # turn skipped: list: if player's turn to be skipped this round.
-    # player_scores: int list: sum  of player scores till this round.
-    # rank_list: int list: contains players in order of their game completion time
+    # prev_roll_score: int list: player score in previous dice roll (Index Start: 1)
+    # turn skipped: list: if player's turn to be skipped this round. (Index Start: 1)
+    # player_scores: int list: sum  of player scores till this round. (Index Start: 1)
+    # rank_list: int list: contains players in order of their game completion time (Index Start: 0)
     # current_player: int: current player elected for current dice roll move.
     # two_consecutive_roll: boolean: denotes if player scored 2 consecutive ones.
     def __init__(self, N, M):
