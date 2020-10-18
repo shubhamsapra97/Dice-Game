@@ -27,6 +27,15 @@ class DiceGame:
     def set_current_player(self, player):
         self.current_player = player
     
+    # method to print game innstructions
+    def display_instructions(self, startingPlayer):
+        print(f"""
+           - Every Player will get chance to roll a dice
+           - Game will start from Player {startingPlayer} and continue in circle
+           - For consecutive 6's, player will get to continue his turn
+           - For each 2 consecutive 1's, player's turn will be skipped.
+        """)
+    
     # Game Init method
     def start_init(self):
         # set random player for first move.
