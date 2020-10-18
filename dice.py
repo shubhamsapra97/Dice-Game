@@ -22,7 +22,7 @@ class DiceGame:
         self.current_player = 1
         self.two_consecutive_ones = False
     
-    # method to print game innstructions
+    # method to print game instructions
     def display_instructions(self, startingPlayer):
         print(f"""
            - Every Player will get chance to roll a dice
