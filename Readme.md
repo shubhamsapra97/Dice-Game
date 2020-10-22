@@ -11,5 +11,5 @@ Game Rules:
 How to run the project:
 - Open terminal and go to the project folder root.
 - Run `pip3 install -r requirements.txt` command in terminal to install all required dependencies.
-- Run `python3 dice.py` to run the python script in terminal.
+- Run `python3 dice.py` or `python3 dice2.py` to run the python script in terminal.
 - To Run tests: run `pytest dice_test.py` in terminal.
