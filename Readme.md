@@ -13,7 +13,7 @@ Game Rules:
 Game Rules:
 - Every Player will get chance to roll a dice.
 - Player Order will be decided in the start of the game.
-- Game will start from first player and continue in circle.
+- Game will start from random player and continue in circle in order decided in game start.
 - For every 6, player will get to continue his turn.
 - For each 2 consecutive 1's, player's turn will be skipped.
 - Press 'r' to roll the dice for the current player
