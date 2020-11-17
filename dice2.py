@@ -181,8 +181,7 @@ class DiceGame:
     # Game Init method
     def start_init(self):
         self.setup_player_data()
-        print(self.player_array)
-        self.set_current_player(random.randint(0, self.players-1))
+        self.set_current_player(self.player_array[0])
         self.display_instructions(self.player_array[self.current_player])
         self.start_game()
 
